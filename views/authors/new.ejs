@@ -1,0 +1,10 @@
+<h2 class="page-header">New Author</h2>
+<form action="/authors" method="POST">
+    <!-- common input tag for NEW and EDIT file -->
+    <%- include('_form_fields')  %>
+    <!-- Cancel Button(link) take back us to our author list view -->
+    <div class="form-end form-row-end btn-row">
+        <a class="btn btn-danger" href="/authors">Cancel</a>
+        <button class="btn btn-primary" type="submit">Create</button>
+    </div>
+</form>

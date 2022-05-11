@@ -1,0 +1,33 @@
+<h2 class="page-header">Search Authors</h2>
+<form action="/authors" method="GET">
+    <div class="form-row">
+        <div class="form-item">
+            <label>Name</label>
+            <input type="text" name="name" value="<%= searchOptions.name %> ">
+        </div>
+    </div>
+    <div class="form-row form-row-end">
+        <button class="btn btn-primary">Search</button>
+    </div>
+</form>
+<br>
+<% authors.forEach(author => { %>
+    <div class="author-row">
+        <div class="author-name"><%= author.name %> </div>
+        <div class="btn-row">
+            <a class="btn btn-primary" href="/authors/<%= author.id %> "> view </a>
+            <a class="btn btn-primary" href="/authors/<%= author.id %>/edit"> edit </a>
+        
+            <!-- DO NOT USE GET REQUEST FOR DELETE DATA
+        
+         because search engine like google crawls into website and will go to every single get route in your 
+         entire application, so google click on delete link and delete all data from website 
+        
+         so for that we have to use entire form instead of anchor tag-->
+            <%- include('../partials/deleteForm',
+                    // we need to use string interpolation, all the code inside the bracket will run inside the server
+                    // and this '%' is not understandable, so we need to do it as normal javascript
+                    {url:`/authors/${author.id}`}) %>
+        </div>
+    </div>
+<% }) %>

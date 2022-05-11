@@ -1,0 +1,11 @@
+<h2 class="page-header">New Book</h2>
+<!-- change form type to multiform type to send data in multipart -->
+<form action="/books" method="POST">
+    <!-- common input tag for NEW and EDIT file -->
+    <%- include('_form_fields')  %>
+    <!-- Cancel Button(link) take back us to our author list view -->
+    <div class="form-row form-row-end btn-row">
+        <a class="btn btn-danger" href="/books">Cancel</a>
+        <button class="btn btn-primary" type="submit">Create</button>
+    </div>
+</form>
